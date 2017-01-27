@@ -1,19 +1,8 @@
-buildscript {
-    ext {
-        springBootVersion = '1.3.5.RELEASE'
-    }
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
-    }
+plugins {
+  id 'org.springframework.boot' version '1.4.4.RELEASE'
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-apply plugin: 'spring-boot' 
 
 jar {
     baseName = 'jersey-jax-rs-examples'
@@ -39,13 +28,3 @@ dependencies {
 }
 
 
-eclipse {
-    classpath {
-         containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
-         containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
-    }
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.9'
-}
